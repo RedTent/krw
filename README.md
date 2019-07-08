@@ -1,2 +1,2 @@
-# krw_toetsing
+# krw
 package voor KRW-toetsing van M-typen
