@@ -1,0 +1,12 @@
+Package: krw
+Title: KRW-toetsing van M-typen
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Johan",
+           family = "van Tent",
+           role = c("aut", "cre"),
+           email = "j.van.tent@hhsk.nl",
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
