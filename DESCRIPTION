@@ -5,8 +5,16 @@ Authors@R:
     person(given = "Johan",
            family = "van Tent",
            role = c("aut", "cre"),
-           email = "j.van.tent@hhsk.nl",
+           email = "j.van.tent@hhsk.nl")
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+Depends: R (>= 2.10)
+Imports: 
+    dplyr,
+    tidyr,
+    purrr,
+    stringr
