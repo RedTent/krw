@@ -3,3 +3,4 @@
 .RData
 .Ruserdata
 ^DEV/
+data-raw/krw/_toetsing/*.csv
