@@ -1,0 +1,18 @@
+title: "Package voor KRW-toetsing - krw"
+
+reference:
+  - title: Macrofauna
+    desc: Functies voor toetsing macrofauna
+    contents:
+      - '`krw_mafa_ekr`'
+  - title: Macrofauna-data
+    desc: Data t.b.v. toetsing van macrofauna
+    contents:
+      - '`krw_mafa_categorie_2018`'
+      - '`krw_mafa_constanten_2018`'
+      - '`ept_taxa`'
+  - title: Beschrijving package
+    desc: Beschrijving package
+    contents:
+      - '`krw`'
+      
