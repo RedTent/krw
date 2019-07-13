@@ -1,12 +1,14 @@
 Package: krw
-Title: KRW-toetsing van M-typen
+Title: KRW-toetsing
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Johan",
            family = "van Tent",
            role = c("aut", "cre"),
            email = "j.van.tent@hhsk.nl")
-Description: What the package does (one paragraph).
+Description: 
+    Dit package bevat functies en tabellen die KRW-toetsingen in R eenvoudig maken. Vooralsnog zijn
+    alleen de maatlatten van 2018 opgenomen. De focus ligt vooral op de toetsing van de M-typen.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -17,4 +19,7 @@ Imports:
     dplyr,
     tidyr,
     purrr,
-    stringr
+    stringr,
+    tibble
+Suggests: 
+    testthat (>= 2.1.0)
