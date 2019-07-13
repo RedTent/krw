@@ -119,3 +119,16 @@
 #' 
 #' head(krw_mafa_constanten_2018)
 "krw_mafa_constanten_2018"
+
+#' EPT-taxa
+#'
+#' Taxa die behoren tot de groep Ephemeroptera (haften), Plecoptera (steenvliegen) en Trichoptera (kokerjuffers).
+#'
+#' @format 
+#' Vector met EPT-taxa
+#'
+#' @source 
+#' 
+#' [Aquo-kit](https://www.aquo-kit.nl/)
+#' 
+"ept_taxa"

@@ -19,8 +19,15 @@ krw_mafa_constanten_2018 <-
   select(-normgroep.omschrijving, -8) %>% 
   rename_at(vars(starts_with("constante_")), str_remove, pattern = "constante_")
 
+ept_taxa <- read_csv2("data-raw/krw_toetsing/340Macrofauna-R8_families-haften-steenvliegen-kokerjuffers_20190713132936.csv") %>% 
+  .$Biotaxon.naam
+
 use_data(krw_mafa_categorie_2018,
          krw_mafa_constanten_2018,
+         ept_taxa,
          overwrite = TRUE)
+
+
+
 
 

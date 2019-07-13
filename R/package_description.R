@@ -22,6 +22,9 @@ if (getRversion() >= "2.15.1")  {
                            "km",
                            "ekr_mafa",
                            "krw_mafa_constanten_2018",
-                           "krw_mafa_categorie_2018"
+                           "krw_mafa_categorie_2018",
+                           "ept_taxa",
+                           "abund_pt_km"
+                           
 ))
 }
