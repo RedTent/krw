@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.org/RedTent/krw.svg?branch=master)](https://travis-ci.org/RedTent/krw)
+[![Codecov test
+coverage](https://codecov.io/gh/RedTent/krw/branch/master/graph/badge.svg)](https://codecov.io/gh/RedTent/krw?branch=master)
 <!-- badges: end -->
 
 Het doel van het package **krw** is om KRW-toetsingen uit te kunnen
