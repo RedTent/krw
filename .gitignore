@@ -2,5 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
-^DEV/
+DEV
 data-raw/krw_toetsing/Somparametersamenstelling_20190706.csv
