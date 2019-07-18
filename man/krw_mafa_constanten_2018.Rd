@@ -63,6 +63,6 @@ De kolomnamen van de chlorideconcentraties zijn omgezet naar een meer computervr
 head(krw_mafa_constanten_2018)
 }
 \seealso{
-Verwijzing
+AANVULLEN
 }
 \keyword{datasets}
