@@ -1,5 +1,8 @@
 ss_formule <- function(som_score, n_scorend, A, B){
+  # Als de A of B ontbreekt
   if (is.na(A) | is.na(B)) return(NA_real_)
+  
+  # als er geen scorende soorten worden aangetroffen
   if (n_scorend == 0) return(0)
   
   ekr <- (
@@ -11,6 +14,7 @@ ss_formule <- function(som_score, n_scorend, A, B){
   ekr
 }
 
+#Alternatieve argumentnamen om toetsing met purrr::pmap te vereenvoudigen
 ss_formule_tot <- function(som_score_tot, n_scorend_tot, A_tot, B_tot, ...){
   ss_formule(som_score = som_score_tot, n_scorend = n_scorend_tot, A = A_tot, B = B_tot)
 }
