@@ -1,3 +1,5 @@
+# Macrofauna-data ---------------------------------------------------------
+
 #' KRW-maatlatten: Macrofauna categorieen
 #'
 #' Aanduiding voor macrofauna taxa of een taxon voor een bepaald watertype behoort 
@@ -48,7 +50,7 @@
 #' 
 #' @seealso 
 #' 
-#' Verwijzing
+#' AANVULLEN
 #' 
 #' @source 
 #' 
@@ -109,7 +111,7 @@
 #' 
 #' @seealso 
 #' 
-#' Verwijzing
+#' AANVULLEN
 #' 
 #' @source 
 #' 
@@ -132,3 +134,129 @@
 #' [Aquo-kit](https://www.aquo-kit.nl/)
 #' 
 "ept_taxa"
+
+
+# Macrofyten-data - soortensamenstelling ----------------------------------
+
+#' KRW-maatlatten: Macrofytenscores
+#'
+#' Score per watertype, taxon en abundantie. Dit is een gecombineerde tabel gebaseerde op de 
+#' macrofytencategorieen en de macrofytenscores. Alleen de scores voor de maatlatten van 
+#' 2018 zijn opgenomen.
+#'
+#' @format 
+#' Dataframe
+#' 
+#' - `groep` Hydrofyten of Helofyten. Alleen voor sloten en kanalen, M1 t/m M10.
+#' - `biotaxon.naam` Naam van het biotaxon, inclusief ondersoorten die niet expliciet in het
+#' maatlatdocument zijn opgenomen.
+#' - `krwwatertype.code` KRW-watertypecode
+#' - `abundantieklasse` Abundantieklasse: 1, 2 of 3
+#' - `score` De score voor de betreffende taxon + watertype + abundantie
+#' 
+#' @details 
+#' 
+#' Macrofyten kunnen getoetst worden voor de Kaderrichtlijn Water d.m.v. zogenaamde maatlatten. 
+#' De documentatie voor deze maatlatten kan gevonden worden op de website van [STOWA](www.stowa.nl). 
+#' Het betreft:
+#' 
+#' - Referenties en maatlatten voor natuurlijke watertypen voor de Kaderrichtlijn Water 2021-2027
+#' - Omschrijving MEP en maatlatten voor sloten en kanalen voor de Kaderrichtlijn Water 2021-2027
+#' 
+#' 
+#' @section Metadata dataset: 
+#' 
+#' - **Naam:** Macrofyten taxonscores 2018
+#' - **Oorspronkelijke Namen:** 
+#'     - 250aMacrofyten-categorieen_yyyymmdduummss
+#'     - 250cMacrofyten_scores_yyyymmdduummss
+#' - **Bronhouder:** IHW (voor Aquo-kit) en STOWA voor de onderliggende data
+#' - **Herkomst:** Aquo-kit <https://www.aquo-kit.nl/>
+#' - **Auteurs:** Diverse
+#' - **Datum dataset:** 2018
+#' - **Datum opname dataset:** 25-6-2019
+#' - **Gebruiksrechten:** Onbeperkt
+#' - **Soortgroep:** Macrofyten
+#' 
+#' @note 
+#' 
+#' In deze tabel zijn alleen de scores van de maatlat van 2018 opgenomen.
+#' 
+#' @section Bewerkingen:
+#' 
+#' De twee originele tabellen zijn gecombineerd tot 1 tabel.
+#' 
+#' De kolomnamen zijn omgezet naar lowercase. 
+#' 
+#' @seealso 
+#' 
+#' AANVULLEN
+#' 
+#' @source 
+#' 
+#' [Aquo-kit](https://www.aquo-kit.nl/)
+#' 
+#' @examples 
+#' 
+#' head(krw_mafy_taxonscore_2018)
+"krw_mafy_taxonscore_2018"
+
+#' KRW-maatlatten: Macrofytenconstanten
+#'
+#' Constanten voor de berekening van de macrofyten-EKR voor soortensamenstelling.
+#'
+#' @format 
+#' Dataframe
+#' 
+#' - `krwwatertype.code` KRW-watertypecode
+#' - `A_helo` A-constante voor helofyten (sloten en kanalen)
+#' - `B_helo` B-constante voor helofyten (sloten en kanalen)
+#' - `A_hydro` A-constante voor hydrofyten (sloten en kanalen)
+#' - `B_hydro` B-constante voor hydrofyten (sloten en kanalen)
+#' - `A_tot` A-constante (natuurlijke watertypen)
+#' - `B_tot` B-constante (natuurlijke watertypen)
+#' 
+#' @details 
+#' 
+#' Macrofyten kunnen getoetst worden voor de Kaderrichtlijn Water d.m.v. zogenaamde maatlatten. 
+#' De documentatie voor deze maatlatten kan gevonden worden op de website van [STOWA](www.stowa.nl). 
+#' Het betreft:
+#' 
+#' - Referenties en maatlatten voor natuurlijke watertypen voor de Kaderrichtlijn Water 2021-2027
+#' - Omschrijving MEP en maatlatten voor sloten en kanalen voor de Kaderrichtlijn Water 2021-2027
+#' 
+#' 
+#' @section Metadata dataset: 
+#' 
+#' - **Naam:** Macrofyten constanten 2018
+#' - **Oorspronkelijke Namen:** 250dMacrofyten_constanten-a-b_yyyymmdduummss
+#' - **Bronhouder:** IHW (voor Aquo-kit) en STOWA voor de onderliggende data
+#' - **Herkomst:** Aquo-kit <https://www.aquo-kit.nl/>
+#' - **Auteurs:** Diverse
+#' - **Datum dataset:** 2018
+#' - **Datum opname dataset:** 25-6-2019
+#' - **Gebruiksrechten:** Onbeperkt
+#' - **Soortgroep:** Macrofyten
+#' 
+#' @note 
+#' 
+#' In deze tabel zijn alleen de constanten van de maatlat van 2018 opgenomen.
+#' 
+#' @section Bewerkingen:
+#' 
+#' De A en B constanten zijn gesplitst op basis van de groep omdat dit de berekening later vereenvoudigd.
+#' 
+#' De kolomnamen zijn omgezet naar lowercase. 
+#' 
+#' @seealso 
+#' 
+#' AANVULLEN
+#' 
+#' @source 
+#' 
+#' [Aquo-kit](https://www.aquo-kit.nl/)
+#' 
+#' @examples 
+#' 
+#' head(krw_mafy_taxonscore_2018)
+"krw_mafy_constanten_2018"
