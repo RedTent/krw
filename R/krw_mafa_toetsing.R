@@ -33,20 +33,20 @@
 #' 
 #' # Een enkel monster
 #' 
-#' krw_mafa_ekr(df_1_monster, taxon, watertype, aantallen)
-#' krw_mafa_ekr(df_1_monster, "taxon", "watertype", "aantallen")
+#' krw_mafa_ekr(df_1_monster, watertype, taxon, aantallen)
+#' krw_mafa_ekr(df_1_monster, "watertype", "taxon", "aantallen")
 #' 
 #' 
 #' # Meerdere monsters in 1 dataframe
 #' 
 #' grouped_df <- group_by(df_meerdere_monsters, meetpunt, datum)
-#' krw_mafa_ekr(grouped_df, taxon, watertype, aantallen)  
+#' krw_mafa_ekr(grouped_df, watertype, taxon, aantallen)  
 #' 
 #' # of met het pipe-teken (%>%)
 #' 
 #' df_meerdere_monsters %>% 
 #'   group_by(meetpunt, datum) %>% 
-#'   krw_mafa_ekr(taxon, watertype, aantallen)
+#'   krw_mafa_ekr(watertype, taxon, aantallen)
 #' 
 #' }
 #' 
