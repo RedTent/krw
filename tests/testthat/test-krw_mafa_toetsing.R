@@ -16,7 +16,7 @@ test_that("krw_mafa_toetsing werkt", {
   test <- dplyr::bind_rows(test1, test2, test3, test4, test5, test6) %>% dplyr::group_by(mp)
   resultaat <- krw_mafa_ekr(test, watertype, soorten, aantallen)
   
-  expect_equal(resultaat$ekr_mafa, c(0, 0 , 0.1, 0.168, 0.64, 0.168))
+  expect_equal(resultaat$ekr_mafa, c(0, 0 , 0.1, 0.168, 0.64, 0.168), tolerance = 0.001)
 })
 
 test_that("multiple group_by", {
@@ -32,6 +32,6 @@ test_that("multiple group_by", {
   ) %>% group_by(meetpunt, jaar)
   
   resultaat <- krw_mafa_ekr(test, krwwatertype.code, taxon, aantal)
-  expect_equal(resultaat$ekr_mafa, c(0, 0.64 , 0.6727272727))
+  expect_equal(resultaat$ekr_mafa, c(0, 0.64 , 0.67272), tolerance = 0.001)
   
 })
