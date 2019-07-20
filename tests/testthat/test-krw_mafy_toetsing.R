@@ -1,3 +1,5 @@
+context("Toetsing macrofyten soortensamenstelling")
+
 test_that("KRW-toetsing soortensamenstelling werkt enkel", {
   
   test_data1 <- tibble::tribble(
