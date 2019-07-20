@@ -20,7 +20,8 @@ Imports:
     tidyr,
     purrr,
     stringr,
-    tibble
+    tibble,
+    rlang (>= 0.4.0)
 Suggests: 
     testthat (>= 2.1.0),
     covr

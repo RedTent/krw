@@ -7,8 +7,8 @@
 #'
 #' @param df Een dataframe met macrofauna-data. Als het dataframe meerdere monsters bevat
 #' moet dit dataframe een *grouped dataframe* worden met de functie [dplyr::group_by()]
-#' @param biotaxon.naam Naam van de kolom met de taxonnamen.
 #' @param krwwatertype.code Naam van de kolom met de KRW-watertype code
+#' @param biotaxon.naam Naam van de kolom met de taxonnamen.
 #' @param waarde Naam van de kolom met aantallen van het betreffende taxon.
 #' @param verbose Logical. Als `TRUE` dan worden behalve de EKR ook de onderliggende parameters
 #' en constanten in de uitvoer meegenomen. Deze zijn vooral relevant om e.e.a. te kunnen controleren.
@@ -33,25 +33,25 @@
 #' 
 #' # Een enkel monster
 #' 
-#' krw_mafa_ekr(df_1_monster, taxon, watertype, aantallen)
-#' krw_mafa_ekr(df_1_monster, "taxon", "watertype", "aantallen")
+#' krw_mafa_ekr(df_1_monster, watertype, taxon, aantallen)
+#' krw_mafa_ekr(df_1_monster, "watertype", "taxon", "aantallen")
 #' 
 #' 
 #' # Meerdere monsters in 1 dataframe
 #' 
 #' grouped_df <- group_by(df_meerdere_monsters, meetpunt, datum)
-#' krw_mafa_ekr(grouped_df, taxon, watertype, aantallen)  
+#' krw_mafa_ekr(grouped_df, watertype, taxon, aantallen)  
 #' 
 #' # of met het pipe-teken (%>%)
 #' 
 #' df_meerdere_monsters %>% 
 #'   group_by(meetpunt, datum) %>% 
-#'   krw_mafa_ekr(taxon, watertype, aantallen)
+#'   krw_mafa_ekr(watertype, taxon, aantallen)
 #' 
 #' }
 #' 
 #' 
-krw_mafa_ekr <- function(df, biotaxon.naam, krwwatertype.code, waarde, verbose = FALSE){
+krw_mafa_ekr <- function(df, krwwatertype.code, biotaxon.naam, waarde, verbose = FALSE){
   
   #Waarschuwingen
   krwwatertypes <- dplyr::pull(df, {{krwwatertype.code}})

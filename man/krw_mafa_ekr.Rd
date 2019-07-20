@@ -4,16 +4,16 @@
 \alias{krw_mafa_ekr}
 \title{KRW-toetsing macrofauna}
 \usage{
-krw_mafa_ekr(df, biotaxon.naam, krwwatertype.code, waarde,
+krw_mafa_ekr(df, krwwatertype.code, biotaxon.naam, waarde,
   verbose = FALSE)
 }
 \arguments{
 \item{df}{Een dataframe met macrofauna-data. Als het dataframe meerdere monsters bevat
 moet dit dataframe een \emph{grouped dataframe} worden met de functie \code{\link[dplyr:group_by]{dplyr::group_by()}}}
 
-\item{biotaxon.naam}{Naam van de kolom met de taxonnamen.}
-
 \item{krwwatertype.code}{Naam van de kolom met de KRW-watertype code}
+
+\item{biotaxon.naam}{Naam van de kolom met de taxonnamen.}
 
 \item{waarde}{Naam van de kolom met aantallen van het betreffende taxon.}
 
@@ -42,20 +42,20 @@ Deze functie is niet geschikt voor de watertypen M30 en R8.
 
 # Een enkel monster
 
-krw_mafa_ekr(df_1_monster, taxon, watertype, aantallen)
-krw_mafa_ekr(df_1_monster, "taxon", "watertype", "aantallen")
+krw_mafa_ekr(df_1_monster, watertype, taxon, aantallen)
+krw_mafa_ekr(df_1_monster, "watertype", "taxon", "aantallen")
 
 
 # Meerdere monsters in 1 dataframe
 
 grouped_df <- group_by(df_meerdere_monsters, meetpunt, datum)
-krw_mafa_ekr(grouped_df, taxon, watertype, aantallen)  
+krw_mafa_ekr(grouped_df, watertype, taxon, aantallen)  
 
 # of met het pipe-teken (\%>\%)
 
 df_meerdere_monsters \%>\% 
   group_by(meetpunt, datum) \%>\% 
-  krw_mafa_ekr(taxon, watertype, aantallen)
+  krw_mafa_ekr(watertype, taxon, aantallen)
 
 }
 

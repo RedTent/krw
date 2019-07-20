@@ -24,6 +24,8 @@ Op dit moment zijn de volgende soortgroepen geimplementeerd.
 
   - Macrofauna
       - *m.u.v M30, R8 en K- en O-typen*
+  - Macrofyten
+      - Soortensamenstelling
 
 ## Macrofauna
 
@@ -70,7 +72,6 @@ krw_mafa_ekr(dataset1,
 #>   <chr>                <dbl>
 #> 1 M27                  0.233
 
-# 
 # krw:::krw_mafa_ekr(dataset1, biotaxon.naam = "taxon", 
 #                    krwwatertype.code = "krwwatertype.code", waarde = "aantal")
 # 
@@ -100,4 +101,67 @@ dataset2 %>%
 #> 1 A         2018 M1a                  0    
 #> 2 B         2018 R6                   0.64 
 #> 3 B         2019 R6                   0.673
+```
+
+## Macrofyten - soortensamenstelling
+
+Eerst maken we weer een testdata set.
+
+``` r
+mafy_data <- tibble::tribble(
+    ~mp, ~jaar, ~watertype,     ~biotaxon.naam,     ~waarde,
+    "A",  2018,      "M27",   "Acorus calamus",           1,
+    "A",  2018,      "M27",    "Berula erecta",           1,
+    "A",  2018,      "M27",   "Chara vulgaris",          10,
+    "A",  2018,      "M27", "Elodea nuttallii",          30,
+    "A",  2019,      "M27",   "Acorus calamus",           1,
+    "A",  2019,      "M27",    "Berula erecta",           1,
+    "A",  2019,      "M27",   "Chara vulgaris",          30,
+    "A",  2019,      "M27", "Elodea nuttallii",          10,
+    "B",  2018,      "M10",   "Acorus calamus",           1,
+    "B",  2018,      "M10",    "Berula erecta",           1,
+    "B",  2018,      "M10",   "Chara vulgaris",          10,
+    "B",  2018,      "M10", "Elodea nuttallii",          30,
+    "B",  2019,      "M10",   "Acorus calamus",           1,
+    "B",  2019,      "M10",    "Berula erecta",           1,
+    "B",  2019,      "M10",   "Chara vulgaris",          30,
+    "B",  2019,      "M10", "Elodea nuttallii",          10
+)
+```
+
+De toetsing voor de macrofytensoortensamenstelling is zeer vergelijkbaar
+met de macrofaunatoetsing. Het is mogelijk om meerdere monsters tegelijk
+te toetsen met de functie `dplyr::group_by`. Voor macrofyten moet vaak
+eerst de bedekking omgerekend worden naar een abundantieklassen. Voor de
+macrofyten gebeurt dit met een aparte functie. Deze functie rekent zowel
+percentages (`type = "percentage"`) als klassen (1 t/m 9 `type =
+"klasse"`) om.
+
+Voor de kunstmatige wateren worden ook de onderliggende EKR’s voor
+hydrofyten en helofyten weergegeven.
+
+``` r
+
+mafy_met_abundantie <- mafy_data %>% add_abundantieklasse(waarde, type = "percentage")
+head(mafy_met_abundantie)
+#> # A tibble: 6 x 6
+#>   mp     jaar watertype biotaxon.naam    waarde abundantieklasse
+#>   <chr> <dbl> <chr>     <chr>             <dbl>            <int>
+#> 1 A      2018 M27       Acorus calamus        1                1
+#> 2 A      2018 M27       Berula erecta         1                1
+#> 3 A      2018 M27       Chara vulgaris       10                2
+#> 4 A      2018 M27       Elodea nuttallii     30                2
+#> 5 A      2019 M27       Acorus calamus        1                1
+#> 6 A      2019 M27       Berula erecta         1                1
+
+mafy_met_abundantie %>% 
+  group_by(mp, jaar) %>% 
+  krw_mafy_ekr_ss(watertype, biotaxon.naam, abundantieklasse)
+#> # A tibble: 4 x 6
+#>   mp     jaar krwwatertype.code ekr_ss_mafy ekr_ss_hydro ekr_ss_helo
+#>   <chr> <dbl> <chr>                   <dbl>        <dbl>       <dbl>
+#> 1 A      2018 M27                     0.420       NA              NA
+#> 2 A      2019 M27                     0.420       NA              NA
+#> 3 B      2018 M10                     0.444        0.666           0
+#> 4 B      2019 M10                     0.444        0.666           0
 ```
