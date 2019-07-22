@@ -7,6 +7,6 @@
 \title{krw: Een package om EKR-scores uit te rekenen}
 \description{
 Functies voor om EKR-scores te bepalen volgens de maatlatten van 2018.
-Deze functies zijn vooralsnog uitsluitend bedoeld voor de toetsing van M-typen.
-Zie voor meer informatie: \url{https://github.com/RedTent/krw}
+Zie voor meer informatie de package-website \url{https://redtent.github.io/krw/}
+of de Github pagina: \url{https://github.com/RedTent/krw}
 }

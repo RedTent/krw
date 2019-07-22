@@ -1,8 +1,8 @@
 #' krw: Een package om EKR-scores uit te rekenen
 #'
 #' Functies voor om EKR-scores te bepalen volgens de maatlatten van 2018. 
-#' Deze functies zijn vooralsnog uitsluitend bedoeld voor de toetsing van M-typen.
-#' Zie voor meer informatie: <https://github.com/RedTent/krw>
+#' Zie voor meer informatie de package-website <https://redtent.github.io/krw/> 
+#' of de Github pagina: <https://github.com/RedTent/krw>
 #' 
 #'
 #' @docType package
