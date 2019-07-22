@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KRW-maatlatten: Macrofauna categorieen — krw_mafa_categorie_2018 • krw - Package voor KRW-toetsingen</title>
+<title>KRW-maatlatten: Macrofytenscores — krw_mafy_taxonscore_2018 • krw - Package voor KRW-toetsingen</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,11 @@
 
 
 
-<meta property="og:title" content="KRW-maatlatten: Macrofauna categorieen — krw_mafa_categorie_2018" />
+<meta property="og:title" content="KRW-maatlatten: Macrofytenscores — krw_mafy_taxonscore_2018" />
 
-<meta property="og:description" content="Aanduiding voor macrofauna taxa of een taxon voor een bepaald watertype behoort
-tot de positieve (P), kenmerkende (K) of negatieve (N) soorten. Deze tabel gaat over alle watertypen
-maar alleen over de maatlatten van 2018." />
+<meta property="og:description" content="Score per watertype, taxon en abundantie. Dit is een gecombineerde tabel gebaseerde op de
+macrofytencategorieen en de macrofytenscores. Alleen de scores voor de maatlatten van
+2018 zijn opgenomen." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -99,33 +99,30 @@ maar alleen over de maatlatten van 2018." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>KRW-maatlatten: Macrofauna categorieen</h1>
+    <h1>KRW-maatlatten: Macrofytenscores</h1>
     
-    <div class="hidden name"><code>krw_mafa_categorie_2018.Rd</code></div>
+    <div class="hidden name"><code>krw_mafy_taxonscore_2018.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Aanduiding voor macrofauna taxa of een taxon voor een bepaald watertype behoort
-tot de positieve (P), kenmerkende (K) of negatieve (N) soorten. Deze tabel gaat over alle watertypen
-maar alleen over de maatlatten van 2018.</p>
+    <p>Score per watertype, taxon en abundantie. Dit is een gecombineerde tabel gebaseerde op de
+macrofytencategorieen en de macrofytenscores. Alleen de scores voor de maatlatten van
+2018 zijn opgenomen.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>krw_mafa_categorie_2018</span></pre>
+    <pre class="usage"><span class='no'>krw_mafy_taxonscore_2018</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>Dataframe</p><ul>
+<li><p><code>groep</code> Hydrofyten of Helofyten. Alleen voor sloten en kanalen, M1 t/m M10.</p></li>
 <li><p><code>biotaxon.naam</code> Naam van het biotaxon, inclusief ondersoorten die niet expliciet in het
 maatlatdocument zijn opgenomen.</p></li>
 <li><p><code>krwwatertype.code</code> KRW-watertypecode</p></li>
-<li><p><code>categorie</code> Categorie van het taxon voor het betreffende watertype.
-Mogelijk categorieen zijn:</p><ul>
-<li><p><strong>P</strong> - Positief taxon</p></li>
-<li><p><strong>K</strong> - Kenmerkend taxon</p></li>
-<li><p><strong>N</strong> - Negatief taxon</p></li>
-</ul></li>
+<li><p><code>abundantieklasse</code> Abundantieklasse: 1, 2 of 3</p></li>
+<li><p><code>score</code> De score voor de betreffende taxon + watertype + abundantie</p></li>
 </ul>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -134,7 +131,7 @@ Mogelijk categorieen zijn:</p><ul>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Macrofauna kan getoetst worden voor de Kaderrichtlijn Water d.m.v. zogenaamde maatlatten.
+    <p>Macrofyten kunnen getoetst worden voor de Kaderrichtlijn Water d.m.v. zogenaamde maatlatten.
 De documentatie voor deze maatlatten kan gevonden worden op de website van <a href='www.stowa.nl'>STOWA</a>.
 Het betreft:</p><ul>
 <li><p>Referenties en maatlatten voor natuurlijke watertypen voor de Kaderrichtlijn Water 2021-2027</p></li>
@@ -143,27 +140,31 @@ Het betreft:</p><ul>
     
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>In deze tabel zijn alleen de categorieën van de maatlat van 2018 opgenomen.</p>
+    <p>In deze tabel zijn alleen de scores van de maatlat van 2018 opgenomen.</p>
     
     <h2 class="hasAnchor" id="metadata-dataset"><a class="anchor" href="#metadata-dataset"></a>Metadata dataset</h2>
 
     
     <ul>
-<li><p><strong>Naam:</strong> Macrofauna-categorieen</p></li>
-<li><p><strong>Oorspronkelijke Naam:</strong> Somparametersamenstelling, de macrofauna-categorieen zijn hier een subset van.</p></li>
+<li><p><strong>Naam:</strong> Macrofyten taxonscores 2018</p></li>
+<li><p><strong>Oorspronkelijke Namen:</strong></p><ul>
+<li><p>250aMacrofyten-categorieen_yyyymmdduummss</p></li>
+<li><p>250cMacrofyten_scores_yyyymmdduummss</p></li>
+</ul></li>
 <li><p><strong>Bronhouder:</strong> IHW (voor Aquo-kit) en STOWA voor de onderliggende data</p></li>
 <li><p><strong>Herkomst:</strong> Aquo-kit <a href='https://www.aquo-kit.nl/'>https://www.aquo-kit.nl/</a></p></li>
 <li><p><strong>Auteurs:</strong> Diverse</p></li>
 <li><p><strong>Datum dataset:</strong> 2018</p></li>
-<li><p><strong>Datum opname dataset:</strong> 6-7-2019</p></li>
+<li><p><strong>Datum opname dataset:</strong> 25-6-2019</p></li>
 <li><p><strong>Gebruiksrechten:</strong> Onbeperkt</p></li>
-<li><p><strong>Soortgroep:</strong> Macrofauna</p></li>
+<li><p><strong>Soortgroep:</strong> Macrofyten</p></li>
 </ul>
     
     <h2 class="hasAnchor" id="bewerkingen"><a class="anchor" href="#bewerkingen"></a>Bewerkingen</h2>
 
     
-    <p>De kolomnamen zijn omgezet naar lowercase.</p>
+    <p>De twee originele tabellen zijn gecombineerd tot 1 tabel.</p>
+<p>De kolomnamen zijn omgezet naar lowercase.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -172,15 +173,15 @@ Het betreft:</p><ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>krw_mafa_categorie_2018</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 3</span><span>
-#&gt;   biotaxon.naam          krwwatertype.code categorie
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> Ablabesmyia longistyla M10               P        
-#&gt; </span><span style='color: #555555;'>2</span><span> Ablabesmyia longistyla M1a               P        
-#&gt; </span><span style='color: #555555;'>3</span><span> Ablabesmyia longistyla M1b               P        
-#&gt; </span><span style='color: #555555;'>4</span><span> Ablabesmyia longistyla M2                P        
-#&gt; </span><span style='color: #555555;'>5</span><span> Ablabesmyia longistyla M22               K        
-#&gt; </span><span style='color: #555555;'>6</span><span> Ablabesmyia longistyla M3                P        </div></span></pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='no'>krw_mafy_taxonscore_2018</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 5</span><span>
+#&gt;   groep biotaxon.naam  krwwatertype.code abundantieklasse score
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> </span><span style='color: #BB0000;'>NA</span><span>    Acorus calamus R12                              1     2
+#&gt; </span><span style='color: #555555;'>2</span><span> </span><span style='color: #BB0000;'>NA</span><span>    Acorus calamus R12                              2     1
+#&gt; </span><span style='color: #555555;'>3</span><span> </span><span style='color: #BB0000;'>NA</span><span>    Acorus calamus R12                              3     0
+#&gt; </span><span style='color: #555555;'>4</span><span> </span><span style='color: #BB0000;'>NA</span><span>    Acorus calamus R14                              1     0
+#&gt; </span><span style='color: #555555;'>5</span><span> </span><span style='color: #BB0000;'>NA</span><span>    Acorus calamus R14                              2     0
+#&gt; </span><span style='color: #555555;'>6</span><span> </span><span style='color: #BB0000;'>NA</span><span>    Acorus calamus R14                              3    -</span><span style='color: #BB0000;'>3</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

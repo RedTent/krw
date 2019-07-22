@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KRW-toetsing macrofauna — krw_mafa_ekr • krw - Package voor KRW-toetsingen</title>
+<title>KRW-toetsing macrofyten soortensamenstelling — krw_mafy_ekr_ss • krw - Package voor KRW-toetsingen</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,10 @@
 
 
 
-<meta property="og:title" content="KRW-toetsing macrofauna — krw_mafa_ekr" />
+<meta property="og:title" content="KRW-toetsing macrofyten soortensamenstelling — krw_mafy_ekr_ss" />
 
-<meta property="og:description" content="Deze functie voert de KRW-toetsing voor macrofauna uit voor een of meerdere monsters. De toetsing is gebaseerd op de
-maatlatten uit het jaar 2018." />
+<meta property="og:description" content="Deze functie voert de KRW-toetsing uit voor de macrofyten-soortensamenstelling voor een of meerdere monsters.
+De toetsing is gebaseerd op de maatlatten uit het jaar 2018." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -98,19 +98,19 @@ maatlatten uit het jaar 2018." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>KRW-toetsing macrofauna</h1>
+    <h1>KRW-toetsing macrofyten soortensamenstelling</h1>
     
-    <div class="hidden name"><code>krw_mafa_ekr.Rd</code></div>
+    <div class="hidden name"><code>krw_mafy_ekr_ss.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Deze functie voert de KRW-toetsing voor macrofauna uit voor een of meerdere monsters. De toetsing is gebaseerd op de
-maatlatten uit het jaar 2018.</p>
+    <p>Deze functie voert de KRW-toetsing uit voor de macrofyten-soortensamenstelling voor een of meerdere monsters.
+De toetsing is gebaseerd op de maatlatten uit het jaar 2018.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>krw_mafa_ekr</span>(<span class='no'>df</span>, <span class='no'>krwwatertype.code</span>, <span class='no'>biotaxon.naam</span>, <span class='no'>waarde</span>,
+    <pre class="usage"><span class='fu'>krw_mafy_ekr_ss</span>(<span class='no'>df</span>, <span class='no'>krwwatertype.code</span>, <span class='no'>biotaxon.naam</span>, <span class='no'>abundantieklasse</span>,
   <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -118,7 +118,7 @@ maatlatten uit het jaar 2018.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>df</th>
-      <td><p>Een dataframe met macrofauna-data. Als het dataframe meerdere monsters bevat
+      <td><p>Een dataframe met macrofyten. Als het dataframe meerdere monsters bevat
 moet dit dataframe een <em>grouped dataframe</em> worden met de functie <code><a href='https://dplyr.tidyverse.org/reference/group_by.html'>dplyr::group_by()</a></code></p></td>
     </tr>
     <tr>
@@ -130,8 +130,10 @@ moet dit dataframe een <em>grouped dataframe</em> worden met de functie <code><a
       <td><p>Naam van de kolom met de taxonnamen.</p></td>
     </tr>
     <tr>
-      <th>waarde</th>
-      <td><p>Naam van de kolom met aantallen van het betreffende taxon.</p></td>
+      <th>abundantieklasse</th>
+      <td><p>Naam van de kolom met de abundantieklassen van het betreffende taxon.
+De abundantieklasse dient de waarde 1, 2, of 3 te bevatten. De functie AANVULLEN kan worden gebruikt
+om om te rekenen naar abundantieklassen.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -142,7 +144,12 @@ en constanten in de uitvoer meegenomen. Deze zijn vooral relevant om e.e.a. te k
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Een dataframe met groepkolommen (alleen indien van toepassing), het watertype en de macrofauna EKR.</p>
+    <p>Een dataframe met groepkolommen (alleen indien van toepassing), het watertype en:</p><ul>
+<li><p><code>ekr_ss_mafy</code> - de EKR voor de soortensamenstelling</p></li>
+<li><p><code>ekr_ss_hydrofyten</code> - de deel-EKR voor de soortensamenstelling hydrofyten (alleen sloten en kanalen)</p></li>
+<li><p><code>ekr_ss_helofyten</code> - de deel-EKR voor de soortensamenstelling helofyten (alleen sloten en kanalen)</p></li>
+</ul>
+
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -153,31 +160,28 @@ worden ingevoerd door het gebruik van non-standard-evaluation (NSE).</p>
 
     <p>Het is van belang dat de biotaxonnamen in de TWN-lijst voorkomen. De KRW-watertypecode dient overeen te komen met de
 codes uit de codes uit de aquo-standaard.</p>
-<p>Deze functie is niet geschikt voor de watertypen M30 en R8.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
 <span class='co'># Een enkel monster</span>
 
-<span class='fu'>krw_mafa_ekr</span>(<span class='no'>df_1_monster</span>, <span class='no'>watertype</span>, <span class='no'>taxon</span>, <span class='no'>aantallen</span>)
-<span class='fu'>krw_mafa_ekr</span>(<span class='no'>df_1_monster</span>, <span class='st'>"watertype"</span>, <span class='st'>"taxon"</span>, <span class='st'>"aantallen"</span>)
+<span class='fu'>krw_mafy_ekr_ss</span>(<span class='no'>df_1_monster</span>, <span class='no'>watertype</span>, <span class='no'>taxon</span>, <span class='no'>abundantie</span>)
+<span class='fu'>krw_mafy_ekr_ss</span>(<span class='no'>df_1_monster</span>, <span class='st'>"watertype"</span>, <span class='st'>"taxon"</span>, <span class='st'>"abundantie"</span>)
 
 
 <span class='co'># Meerdere monsters in 1 dataframe</span>
 
 <span class='no'>grouped_df</span> <span class='kw'>&lt;-</span> <span class='fu'>group_by</span>(<span class='no'>df_meerdere_monsters</span>, <span class='no'>meetpunt</span>, <span class='no'>datum</span>)
-<span class='fu'>krw_mafa_ekr</span>(<span class='no'>grouped_df</span>, <span class='no'>watertype</span>, <span class='no'>taxon</span>, <span class='no'>aantallen</span>)
+<span class='fu'>krw_mafy_ekr_ss</span>(<span class='no'>grouped_df</span>, <span class='no'>watertype</span>, <span class='no'>taxon</span>, <span class='no'>abundantie</span>)
 
 <span class='co'># of met het pipe-teken (%&gt;%)</span>
 
 <span class='no'>df_meerdere_monsters</span> <span class='kw'>%&gt;%</span>
   <span class='fu'>group_by</span>(<span class='no'>meetpunt</span>, <span class='no'>datum</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>krw_mafa_ekr</span>(<span class='no'>watertype</span>, <span class='no'>taxon</span>, <span class='no'>aantallen</span>)
+  <span class='fu'>krw_mafy_ekr_ss</span>(<span class='no'>watertype</span>, <span class='no'>taxon</span>, <span class='no'>abundantie</span>)
 
-<span class='co'># }</span><div class='input'>
-
-</div></pre>
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

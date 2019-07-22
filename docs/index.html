@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KRW-toetsing • Package voor KRW-toetsing - krw</title>
+<title>KRW-toetsing • krw - Package voor KRW-toetsingen</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
@@ -31,8 +31,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">Package voor KRW-toetsing - krw</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <a class="navbar-link" href="index.html">krw - Package voor KRW-toetsingen</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -82,6 +82,11 @@
 <li><em>m.u.v M30, R8 en K- en O-typen</em></li>
 </ul>
 </li>
+<li>Macrofyten
+<ul>
+<li>Soortensamenstelling</li>
+</ul>
+</li>
 </ul>
 <div id="macrofauna" class="section level2">
 <h2 class="hasAnchor">
@@ -122,11 +127,10 @@
 <a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt;   &lt;chr&gt;                &lt;dbl&gt;</span></a>
 <a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt; 1 M27                  0.233</span></a>
 <a class="sourceLine" id="cb3-10" title="10"></a>
-<a class="sourceLine" id="cb3-11" title="11"><span class="co"># </span></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="co"># krw:::krw_mafa_ekr(dataset1, biotaxon.naam = "taxon", </span></a>
-<a class="sourceLine" id="cb3-13" title="13"><span class="co">#                    krwwatertype.code = "krwwatertype.code", waarde = "aantal")</span></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="co"># </span></a>
-<a class="sourceLine" id="cb3-15" title="15"><span class="co"># Meer detail informatie kan worden verkregen met de optie `verbose = TRUE`</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-11" title="11"><span class="co"># krw:::krw_mafa_ekr(dataset1, biotaxon.naam = "taxon", </span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="co">#                    krwwatertype.code = "krwwatertype.code", waarde = "aantal")</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="co"># </span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co"># Meer detail informatie kan worden verkregen met de optie `verbose = TRUE`</span></a></code></pre></div>
 </div>
 <div id="toetsing-van-meerdere-monsters" class="section level3">
 <h3 class="hasAnchor">
@@ -148,6 +152,55 @@
 <a class="sourceLine" id="cb4-14" title="14"><span class="co">#&gt; 2 B         2018 R6                   0.64 </span></a>
 <a class="sourceLine" id="cb4-15" title="15"><span class="co">#&gt; 3 B         2019 R6                   0.673</span></a></code></pre></div>
 </div>
+</div>
+<div id="macrofyten---soortensamenstelling" class="section level2">
+<h2 class="hasAnchor">
+<a href="#macrofyten---soortensamenstelling" class="anchor"></a>Macrofyten - soortensamenstelling</h2>
+<p>Eerst maken we weer een testdata set.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">mafy_data &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span>(</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="op">~</span>mp, <span class="op">~</span>jaar, <span class="op">~</span>watertype,     <span class="op">~</span>biotaxon.naam,     <span class="op">~</span>waarde,</a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="st">"A"</span>,  <span class="dv">2018</span>,      <span class="st">"M27"</span>,   <span class="st">"Acorus calamus"</span>,           <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="st">"A"</span>,  <span class="dv">2018</span>,      <span class="st">"M27"</span>,    <span class="st">"Berula erecta"</span>,           <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb5-5" title="5">    <span class="st">"A"</span>,  <span class="dv">2018</span>,      <span class="st">"M27"</span>,   <span class="st">"Chara vulgaris"</span>,          <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="st">"A"</span>,  <span class="dv">2018</span>,      <span class="st">"M27"</span>, <span class="st">"Elodea nuttallii"</span>,          <span class="dv">30</span>,</a>
+<a class="sourceLine" id="cb5-7" title="7">    <span class="st">"A"</span>,  <span class="dv">2019</span>,      <span class="st">"M27"</span>,   <span class="st">"Acorus calamus"</span>,           <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="st">"A"</span>,  <span class="dv">2019</span>,      <span class="st">"M27"</span>,    <span class="st">"Berula erecta"</span>,           <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="st">"A"</span>,  <span class="dv">2019</span>,      <span class="st">"M27"</span>,   <span class="st">"Chara vulgaris"</span>,          <span class="dv">30</span>,</a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="st">"A"</span>,  <span class="dv">2019</span>,      <span class="st">"M27"</span>, <span class="st">"Elodea nuttallii"</span>,          <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb5-11" title="11">    <span class="st">"B"</span>,  <span class="dv">2018</span>,      <span class="st">"M10"</span>,   <span class="st">"Acorus calamus"</span>,           <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb5-12" title="12">    <span class="st">"B"</span>,  <span class="dv">2018</span>,      <span class="st">"M10"</span>,    <span class="st">"Berula erecta"</span>,           <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb5-13" title="13">    <span class="st">"B"</span>,  <span class="dv">2018</span>,      <span class="st">"M10"</span>,   <span class="st">"Chara vulgaris"</span>,          <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb5-14" title="14">    <span class="st">"B"</span>,  <span class="dv">2018</span>,      <span class="st">"M10"</span>, <span class="st">"Elodea nuttallii"</span>,          <span class="dv">30</span>,</a>
+<a class="sourceLine" id="cb5-15" title="15">    <span class="st">"B"</span>,  <span class="dv">2019</span>,      <span class="st">"M10"</span>,   <span class="st">"Acorus calamus"</span>,           <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb5-16" title="16">    <span class="st">"B"</span>,  <span class="dv">2019</span>,      <span class="st">"M10"</span>,    <span class="st">"Berula erecta"</span>,           <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb5-17" title="17">    <span class="st">"B"</span>,  <span class="dv">2019</span>,      <span class="st">"M10"</span>,   <span class="st">"Chara vulgaris"</span>,          <span class="dv">30</span>,</a>
+<a class="sourceLine" id="cb5-18" title="18">    <span class="st">"B"</span>,  <span class="dv">2019</span>,      <span class="st">"M10"</span>, <span class="st">"Elodea nuttallii"</span>,          <span class="dv">10</span></a>
+<a class="sourceLine" id="cb5-19" title="19">)</a></code></pre></div>
+<p>De toetsing voor de macrofytensoortensamenstelling is zeer vergelijkbaar met de macrofaunatoetsing. Het is mogelijk om meerdere monsters tegelijk te toetsen met de functie <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">dplyr::group_by</a></code>. Voor macrofyten moet vaak eerst de bedekking omgerekend worden naar een abundantieklassen. Voor de macrofyten gebeurt dit met een aparte functie. Deze functie rekent zowel percentages (<code>type = "percentage"</code>) als klassen (1 t/m 9 <code>type = "klasse"</code>) om.</p>
+<p>Voor de kunstmatige wateren worden ook de onderliggende EKR’s voor hydrofyten en helofyten weergegeven.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"></a>
+<a class="sourceLine" id="cb6-2" title="2">mafy_met_abundantie &lt;-<span class="st"> </span>mafy_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="reference/add_abundantieklasse.html">add_abundantieklasse</a></span>(waarde, <span class="dt">type =</span> <span class="st">"percentage"</span>)</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(mafy_met_abundantie)</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt; # A tibble: 6 x 6</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt;   mp     jaar watertype biotaxon.naam    waarde abundantieklasse</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="co">#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;             &lt;dbl&gt;            &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; 1 A      2018 M27       Acorus calamus        1                1</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="co">#&gt; 2 A      2018 M27       Berula erecta         1                1</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; 3 A      2018 M27       Chara vulgaris       10                2</span></a>
+<a class="sourceLine" id="cb6-10" title="10"><span class="co">#&gt; 4 A      2018 M27       Elodea nuttallii     30                2</span></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; 5 A      2019 M27       Acorus calamus        1                1</span></a>
+<a class="sourceLine" id="cb6-12" title="12"><span class="co">#&gt; 6 A      2019 M27       Berula erecta         1                1</span></a>
+<a class="sourceLine" id="cb6-13" title="13"></a>
+<a class="sourceLine" id="cb6-14" title="14">mafy_met_abundantie <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-15" title="15"><span class="st">  </span><span class="kw">group_by</span>(mp, jaar) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="st">  </span><span class="kw"><a href="reference/krw_mafy_ekr_ss.html">krw_mafy_ekr_ss</a></span>(watertype, biotaxon.naam, abundantieklasse)</a>
+<a class="sourceLine" id="cb6-17" title="17"><span class="co">#&gt; # A tibble: 4 x 6</span></a>
+<a class="sourceLine" id="cb6-18" title="18"><span class="co">#&gt;   mp     jaar krwwatertype.code ekr_ss_mafy ekr_ss_hydro ekr_ss_helo</span></a>
+<a class="sourceLine" id="cb6-19" title="19"><span class="co">#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb6-20" title="20"><span class="co">#&gt; 1 A      2018 M27                     0.420       NA              NA</span></a>
+<a class="sourceLine" id="cb6-21" title="21"><span class="co">#&gt; 2 A      2019 M27                     0.420       NA              NA</span></a>
+<a class="sourceLine" id="cb6-22" title="22"><span class="co">#&gt; 3 B      2018 M10                     0.444        0.666           0</span></a>
+<a class="sourceLine" id="cb6-23" title="23"><span class="co">#&gt; 4 B      2019 M10                     0.444        0.666           0</span></a></code></pre></div>
 </div>
 </div>
   </div>
@@ -171,7 +224,6 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/RedTent/krw"><img src="https://travis-ci.org/RedTent/krw.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://codecov.io/gh/RedTent/krw?branch=master"><img src="https://codecov.io/gh/RedTent/krw/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 </div>
