@@ -1,6 +1,6 @@
 Package: krw
 Title: KRW-toetsing
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person(given = "Johan",
            family = "van Tent",
