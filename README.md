@@ -129,11 +129,12 @@ mafy_data <- tibble::tribble(
 
 De toetsing voor de macrofytensoortensamenstelling is zeer vergelijkbaar
 met de macrofaunatoetsing. Het is mogelijk om meerdere monsters tegelijk
-te toetsen met de functie `dplyr::group_by`. Voor macrofyten moet vaak
-eerst de bedekking omgerekend worden naar een abundantieklassen. Voor de
-macrofyten gebeurt dit met een aparte functie. Deze functie rekent zowel
-percentages (`type = "percentage"`) als klassen (1 t/m 9 `type =
-"klasse"`) om.
+te toetsen met de functie `dplyr::group_by`.
+
+Voor macrofyten moet vaak eerst de bedekking omgerekend worden naar een
+abundantieklassen. Voor de macrofyten gebeurt dit met een aparte
+functie. Deze functie rekent zowel percentages (`type = "percentage"`)
+als klassen (1 t/m 9 `type = "klasse"`) om.
 
 Voor de kunstmatige wateren worden ook de onderliggende EKR’s voor
 hydrofyten en helofyten weergegeven.
