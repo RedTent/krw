@@ -1,5 +1,7 @@
 # krw 0.2.0
 
+- Functionaliteit toegevoegd voor het toetsen van de soortensamenstelling van macrofyten.
+
 # krw 0.1.0
 
 - Eerste werkende versie met de mogelijkheid om KRW-toetsingen uit te voeren van macrofaunamonsters
