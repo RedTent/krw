@@ -32,7 +32,9 @@ if (getRversion() >= "2.15.1")  {
                            "ekr_ss_hydro",
                            "ekr_ss_mafy",
                            "krw_mafy_taxonscore_2018",
-                           "krw_mafy_constanten_2018"
+                           "krw_mafy_constanten_2018",
+                           "chloride_min",
+                           "chloride_max"
                            
 ))
 }
