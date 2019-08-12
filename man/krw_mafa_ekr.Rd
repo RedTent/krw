@@ -35,7 +35,12 @@ worden ingevoerd door het gebruik van non-standard-evaluation (NSE).
 Het is van belang dat de biotaxonnamen in de TWN-lijst voorkomen. De KRW-watertypecode dient overeen te komen met de
 codes uit de codes uit de aquo-standaard.
 
-Deze functie is niet geschikt voor de watertypen M30 en R8.
+De beoordeling van het watertype M30 is afhankelijk van de chlorideconcentratie. Deze functie geeft
+voor het watertype M30 3 EKR's met de daarbij behorende chloriderange. Hierdoor is het mogelijk om
+een toetsing uit te voeren zonder een chloride waarde. Ook is het mogelijk om naderhand de juist ekr
+te selecteren.
+
+Deze functie is niet geschikt voor het watertypen R8.
 }
 \examples{
 \dontrun{

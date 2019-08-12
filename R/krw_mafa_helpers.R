@@ -51,5 +51,5 @@ ekr_formule <- function(pt, ptmax, dn_abund_perc, dnmax, pt_km_abund_perc, km_pe
     return(ekr)
   }
   
-  message("Er gaat iets mis")
+  return(NA_real_)
 }
