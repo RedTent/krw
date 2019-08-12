@@ -1,3 +1,7 @@
+# krw 0.2.1
+
+- Bijgewerkt om type M30 goed af te handelen en andere afwijkende watertypen de waarde NA te geven.
+
 # krw 0.2.0
 
 - Functionaliteit toegevoegd voor het toetsen van de soortensamenstelling van macrofyten.
