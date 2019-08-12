@@ -64,7 +64,7 @@ maatlatten uit het jaar 2018." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">krw - Package voor KRW-toetsingen</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -153,7 +153,11 @@ worden ingevoerd door het gebruik van non-standard-evaluation (NSE).</p>
 
     <p>Het is van belang dat de biotaxonnamen in de TWN-lijst voorkomen. De KRW-watertypecode dient overeen te komen met de
 codes uit de codes uit de aquo-standaard.</p>
-<p>Deze functie is niet geschikt voor de watertypen M30 en R8.</p>
+<p>De beoordeling van het watertype M30 is afhankelijk van de chlorideconcentratie. Deze functie geeft
+voor het watertype M30 3 EKR's met de daarbij behorende chloriderange. Hierdoor is het mogelijk om
+een toetsing uit te voeren zonder een chloride waarde. Ook is het mogelijk om naderhand de juist ekr
+te selecteren.</p>
+<p>Deze functie is niet geschikt voor het watertypen R8.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">krw - Package voor KRW-toetsingen</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -176,7 +176,8 @@
 <a class="sourceLine" id="cb5-17" title="17">    <span class="st">"B"</span>,  <span class="dv">2019</span>,      <span class="st">"M10"</span>,   <span class="st">"Chara vulgaris"</span>,          <span class="dv">30</span>,</a>
 <a class="sourceLine" id="cb5-18" title="18">    <span class="st">"B"</span>,  <span class="dv">2019</span>,      <span class="st">"M10"</span>, <span class="st">"Elodea nuttallii"</span>,          <span class="dv">10</span></a>
 <a class="sourceLine" id="cb5-19" title="19">)</a></code></pre></div>
-<p>De toetsing voor de macrofytensoortensamenstelling is zeer vergelijkbaar met de macrofaunatoetsing. Het is mogelijk om meerdere monsters tegelijk te toetsen met de functie <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">dplyr::group_by</a></code>. Voor macrofyten moet vaak eerst de bedekking omgerekend worden naar een abundantieklassen. Voor de macrofyten gebeurt dit met een aparte functie. Deze functie rekent zowel percentages (<code>type = "percentage"</code>) als klassen (1 t/m 9 <code>type = "klasse"</code>) om.</p>
+<p>De toetsing voor de macrofytensoortensamenstelling is zeer vergelijkbaar met de macrofaunatoetsing. Het is mogelijk om meerdere monsters tegelijk te toetsen met de functie <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">dplyr::group_by</a></code>.</p>
+<p>Voor macrofyten moet vaak eerst de bedekking omgerekend worden naar een abundantieklassen. Voor de macrofyten gebeurt dit met een aparte functie. Deze functie rekent zowel percentages (<code>type = "percentage"</code>) als klassen (1 t/m 9 <code>type = "klasse"</code>) om.</p>
 <p>Voor de kunstmatige wateren worden ook de onderliggende EKR’s voor hydrofyten en helofyten weergegeven.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"></a>
 <a class="sourceLine" id="cb6-2" title="2">mafy_met_abundantie &lt;-<span class="st"> </span>mafy_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="reference/add_abundantieklasse.html">add_abundantieklasse</a></span>(waarde, <span class="dt">type =</span> <span class="st">"percentage"</span>)</a>
