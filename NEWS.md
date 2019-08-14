@@ -1,6 +1,6 @@
 # krw 0.2.1
 
-- Bijgewerkt om type M30 goed af te handelen en andere afwijkende watertypen de waarde NA te geven.
+- Bijgewerkt om macrofaunatoetsing van type M30 goed af te handelen en andere afwijkende watertypen de waarde NA te geven.
 
 # krw 0.2.0
 

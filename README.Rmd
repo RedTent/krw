@@ -29,7 +29,7 @@ Op dit moment zijn de volgende soortgroepen geimplementeerd.
 
 
 - Macrofauna 
-    - *m.u.v M30, R8 en K- en O-typen*
+    - *m.u.v R8 en K- en O-typen*
 - Macrofyten
     - Soortensamenstelling
 
@@ -70,17 +70,22 @@ dataset2 <-
 
 ### Toetsing van een enkel monster
 
-De toetsing van een enkel monster kan eenvoudig worden uitgevoerd met de functie `krw_mafa_ekr()`.
+De toetsing van een enkel monster kan eenvoudig worden uitgevoerd met de functie `krw_mafa_ekr()`. De omrekening van aantallen naar abundanties wordt automatisch door de functie gedaan.
 
 ```{r toetsing-mafa-enkel}
 
 krw_mafa_ekr(dataset1, 
              biotaxon.naam = taxon, 
              krwwatertype.code = krwwatertype.code, 
-             waarde = aantal)
+             waarde = aantal,
+             verbose = FALSE)
 
-# krw:::krw_mafa_ekr(dataset1, biotaxon.naam = "taxon", 
-#                    krwwatertype.code = "krwwatertype.code", waarde = "aantal")
+# Alternatieve notatie
+# 
+# krw:::krw_mafa_ekr(dataset1, 
+#                    biotaxon.naam = "taxon", 
+#                    krwwatertype.code = "krwwatertype.code", 
+#                    waarde = "aantal")
 # 
 # Meer detail informatie kan worden verkregen met de optie `verbose = TRUE`
 
@@ -90,10 +95,8 @@ krw_mafa_ekr(dataset1,
 
 Meerdere monsters kunnen met tegelijk met dezelfde functie worden getoetst. Het is hiervoor wel noodzakelijk dat het dataframe met de dataset wordt gegroepeerd per monster met de functie `group_by` uit de package `dplyr`.
 
-```{r toetsing-mafa-meerdere}
-suppressMessages(
-  library(dplyr)
-  )
+```{r toetsing-mafa-meerdere, message=FALSE, warning=FALSE}
+library(dplyr)
 
 dataset2 %>% 
   dplyr::group_by(meetpunt, jaar) %>% 
@@ -105,11 +108,13 @@ dataset2 %>%
 
 ## Macrofyten - soortensamenstelling
 
+De toetsing voor de macrofytensoortensamenstelling is zeer vergelijkbaar met de macrofaunatoetsing. Het is mogelijk om meerdere monsters tegelijk te toetsen door met de functie `dplyr::group_by` van elk monster een groep te maken.
+
 Eerst maken we weer een testdata set.
 
 ```{r dataset-mafy}
 mafy_data <- tibble::tribble(
-    ~mp, ~jaar, ~watertype,     ~biotaxon.naam,     ~waarde,
+    ~mp, ~jaar, ~watertype,             ~taxon,     ~waarde,
     "A",  2018,      "M27",   "Acorus calamus",           1,
     "A",  2018,      "M27",    "Berula erecta",           1,
     "A",  2018,      "M27",   "Chara vulgaris",          10,
@@ -130,20 +135,23 @@ mafy_data <- tibble::tribble(
 
 ```
 
-De toetsing voor de macrofytensoortensamenstelling is zeer vergelijkbaar met de macrofaunatoetsing. Het is mogelijk om meerdere monsters tegelijk te toetsen met de functie `dplyr::group_by`. 
-
-Voor macrofyten moet vaak eerst de bedekking omgerekend worden naar een abundantieklassen. Voor de macrofyten gebeurt dit met een aparte functie. Deze functie rekent zowel percentages (`type = "percentage"`) als klassen (1 t/m 9 `type = "klasse"`) om.
+Voor macrofyten moet de bedekking eerst omgerekend worden naar een abundantieklasse. Voor de macrofyten gebeurt dit met de functie `add_abundantieklasse()`. Deze functie rekent zowel percentages (`type = "percentage"`) als klassen (1 t/m 9 `type = "klasse"`) om.
 
 Voor de kunstmatige wateren worden ook de onderliggende EKR's voor hydrofyten en helofyten weergegeven.
 
-```{r toetsing-mafy-ss}
+```{r toetsing-mafy-ss, message=FALSE, warning=FALSE}
+library(dplyr)
 
-mafy_met_abundantie <- mafy_data %>% add_abundantieklasse(waarde, type = "percentage")
+mafy_met_abundantie <- mafy_data %>% 
+  add_abundantieklasse(bedekking = waarde, type = "percentage")
 head(mafy_met_abundantie)
 
 mafy_met_abundantie %>% 
-  group_by(mp, jaar) %>% 
-  krw_mafy_ekr_ss(watertype, biotaxon.naam, abundantieklasse)
+  dplyr::group_by(mp, jaar) %>% 
+  krw_mafy_ekr_ss(krwwatertype.code = watertype, 
+                  biotaxon.naam = taxon, 
+                  abundantieklasse = abundantieklasse,
+                  verbose = FALSE)
 
 ```
 
