@@ -1,3 +1,7 @@
+# krw 0.2.2
+
+Update van de macrofaunatabellen. Dit zou toetsing voor R4a en R4b mogelijk moeten maken.
+
 # krw 0.2.1
 
 - Bijgewerkt om macrofaunatoetsing van type M30 goed af te handelen en andere afwijkende watertypen de waarde NA te geven.

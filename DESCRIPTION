@@ -1,6 +1,6 @@
 Package: krw
 Title: KRW-toetsing
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: 
     person(given = "Johan",
            family = "van Tent",
@@ -13,7 +13,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
 Depends: R (>= 2.10)
 Imports: 
     dplyr,
