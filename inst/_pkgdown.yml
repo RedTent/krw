@@ -15,7 +15,7 @@ reference:
     contents:
       - '`krw_mafa_categorie_2018`'
       - '`krw_mafa_constanten_2018`'
-      - '`ept_taxa`'
+      - '`ept_families`'
   - title: Macrofyten-data
     desc: Data t.b.v. toetsing van macrofauna
     contents:
