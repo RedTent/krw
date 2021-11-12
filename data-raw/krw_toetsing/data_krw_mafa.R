@@ -1,7 +1,7 @@
 library(tidyverse)
 
 krw_mafa_categorie_2018 <- 
-  read_csv2("data-raw/krw_toetsing/Somparametersamenstelling_20190706.csv") %>% 
+  read_csv2("data-raw/krw_toetsing/Somparametersamenstelling.csv") %>% 
   filter(str_detect(Somparameter.code, "MAF_soort")) %>% 
   mutate(categorie = str_remove(str_remove(Somparameter.code, "MAF_soort"), "D")) %>% 
   filter(categorie %in% c("P", "K", "N"), 
@@ -10,7 +10,7 @@ krw_mafa_categorie_2018 <-
   arrange(biotaxon.naam, krwwatertype.code) 
 
 krw_mafa_constanten_2018 <-
-  read_delim("data-raw/krw_toetsing/35xMacrofauna-constanten-berekening-kwaliteitselement_20190706134913.csv", 
+  read_delim("data-raw/krw_toetsing/35xMacrofauna-constanten-berekening-kwaliteitselement_20211015092527.csv", 
              delim = ";",
              locale = locale(decimal_mark = ".")) %>%
   rename_all(tolower) %>%
@@ -22,7 +22,7 @@ krw_mafa_constanten_2018 <-
 ept_taxa <- read_csv2("data-raw/krw_toetsing/340Macrofauna-R8_families-haften-steenvliegen-kokerjuffers_20190713132936.csv") %>% 
   .$Biotaxon.naam
 
-use_data(krw_mafa_categorie_2018,
+usethis::use_data(krw_mafa_categorie_2018,
          krw_mafa_constanten_2018,
          ept_taxa,
          overwrite = TRUE)
