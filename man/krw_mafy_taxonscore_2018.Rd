@@ -4,7 +4,8 @@
 \name{krw_mafy_taxonscore_2018}
 \alias{krw_mafy_taxonscore_2018}
 \title{KRW-maatlatten: Macrofytenscores}
-\format{Dataframe
+\format{
+Dataframe
 \itemize{
 \item \code{groep} Hydrofyten of Helofyten. Alleen voor sloten en kanalen, M1 t/m M10.
 \item \code{biotaxon.naam} Naam van het biotaxon, inclusief ondersoorten die niet expliciet in het
@@ -12,7 +13,8 @@ maatlatdocument zijn opgenomen.
 \item \code{krwwatertype.code} KRW-watertypecode
 \item \code{abundantieklasse} Abundantieklasse: 1, 2 of 3
 \item \code{score} De score voor de betreffende taxon + watertype + abundantie
-}}
+}
+}
 \source{
 \href{https://www.aquo-kit.nl/}{Aquo-kit}
 }

@@ -4,7 +4,8 @@
 \name{krw_mafa_constanten_2018}
 \alias{krw_mafa_constanten_2018}
 \title{KRW-maatlatten: Macrofauna constanten}
-\format{Dataframe
+\format{
+Dataframe
 \itemize{
 \item \code{krwwatertype.code} KRW-watertypecode
 \item \code{chloride_min} Ondergrens van de chlorideconcentratie in mg/l. Alleen voor watertype M30.
@@ -12,7 +13,8 @@
 \item \code{kmmax} Maximaal aantal kenmerkende taxa. Alleen voor natuurlijke watertypen
 \item \code{ptmax} Maximaal aantal positieve taxa. Alleen voor kunstmatige watertypen
 \item \code{dnmax} Maximaal aandeel in de abundantie. Alleen voor
-}}
+}
+}
 \source{
 \href{https://www.aquo-kit.nl/}{Aquo-kit}
 }

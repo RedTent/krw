@@ -4,7 +4,8 @@
 \name{krw_mafa_categorie_2018}
 \alias{krw_mafa_categorie_2018}
 \title{KRW-maatlatten: Macrofauna categorieen}
-\format{Dataframe
+\format{
+Dataframe
 \itemize{
 \item \code{biotaxon.naam} Naam van het biotaxon, inclusief ondersoorten die niet expliciet in het
 maatlatdocument zijn opgenomen.
@@ -16,7 +17,8 @@ Mogelijk categorieen zijn:
 \item \strong{K} - Kenmerkend taxon
 \item \strong{N} - Negatief taxon
 }
-}}
+}
+}
 \source{
 \href{https://www.aquo-kit.nl/}{Aquo-kit}
 }

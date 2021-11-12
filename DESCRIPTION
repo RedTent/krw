@@ -20,7 +20,9 @@ Imports:
     purrr,
     stringr,
     tibble,
-    rlang (>= 0.4.0)
+    rlang (>= 0.4.0),
+    twn
 Suggests: 
     testthat (>= 2.1.0),
     covr
+RoxygenNote: 7.1.1

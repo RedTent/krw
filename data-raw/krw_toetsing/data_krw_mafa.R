@@ -1,4 +1,5 @@
 library(tidyverse)
+library(twn)
 
 krw_mafa_categorie_2018 <- 
   read_csv2("data-raw/krw_toetsing/Somparametersamenstelling.csv") %>% 
@@ -19,12 +20,20 @@ krw_mafa_constanten_2018 <-
   select(-normgroep.omschrijving, -8) %>% 
   rename_at(vars(starts_with("constante_")), str_remove, pattern = "constante_")
 
-ept_taxa <- read_csv2("data-raw/krw_toetsing/340Macrofauna-R8_families-haften-steenvliegen-kokerjuffers_20190713132936.csv") %>% 
-  .$Biotaxon.naam
+# ept_taxa <- read_csv2("data-raw/krw_toetsing/340Macrofauna-R8_families-haften-steenvliegen-kokerjuffers_20211015092537.csv") %>% 
+#   .$Biotaxon.naam
+
+# ept <- read_csv2("data-raw/krw_toetsing/340Macrofauna-R8_families-haften-steenvliegen-kokerjuffers_20211015092537.csv")
+
+ept_families <- read_csv2("data-raw/krw_toetsing/340Macrofauna-R8_families-haften-steenvliegen-kokerjuffers_20211015092537.csv") %>% 
+  pull(Biotaxon.naam) %>% 
+  increase_taxonlevel("Familia") %>% 
+  unique() %>% 
+  sort()
 
 usethis::use_data(krw_mafa_categorie_2018,
          krw_mafa_constanten_2018,
-         ept_taxa,
+         ept_families,
          overwrite = TRUE)
 
 

@@ -4,8 +4,13 @@
 \alias{krw_mafy_ekr_ss}
 \title{KRW-toetsing macrofyten soortensamenstelling}
 \usage{
-krw_mafy_ekr_ss(df, krwwatertype.code, biotaxon.naam, abundantieklasse,
-  verbose = FALSE)
+krw_mafy_ekr_ss(
+  df,
+  krwwatertype.code,
+  biotaxon.naam,
+  abundantieklasse,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{df}{Een dataframe met macrofyten. Als het dataframe meerdere monsters bevat

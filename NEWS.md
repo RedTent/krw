@@ -1,6 +1,10 @@
 # krw 0.2.2
 
-Update van de macrofaunatabellen. Dit zou toetsing voor R4a en R4b mogelijk moeten maken.
+## Bugfixes
+
+- Update van de macrofaunatabellen. Dit zou toetsing voor R4a en R4b mogelijk moeten maken.
+- De EPT-factor voor R7 en R16 wordt nu goed berekend. Dit ging soms verkeerd als er meerdere taxa binnen 1 familie in een monster aanwezig waren.
+
 
 # krw 0.2.1
 

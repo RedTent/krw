@@ -24,7 +24,7 @@ zowel percentages als de 9-delige STOWA-klasse (afgeleid van Tansley en/of Braun
 omzetten in de abundantieklassen.
 }
 \note{
-Missende en/of ongeldige waarden (bijv. 0, <0% klasse 1.5 of klasse 10) worden
+Missende en/of ongeldige waarden (bijv. 0, <0\% klasse 1.5 of klasse 10) worden
 omgezet in \code{NA}. In deze gevallen geeft de functie wel een melding dat deze
 waarden geen correcte waarden zijn.
 }

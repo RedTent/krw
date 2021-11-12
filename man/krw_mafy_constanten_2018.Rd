@@ -4,7 +4,8 @@
 \name{krw_mafy_constanten_2018}
 \alias{krw_mafy_constanten_2018}
 \title{KRW-maatlatten: Macrofytenconstanten}
-\format{Dataframe
+\format{
+Dataframe
 \itemize{
 \item \code{krwwatertype.code} KRW-watertypecode
 \item \code{A_helo} A-constante voor helofyten (sloten en kanalen)
@@ -13,7 +14,8 @@
 \item \code{B_hydro} B-constante voor hydrofyten (sloten en kanalen)
 \item \code{A_tot} A-constante (natuurlijke watertypen)
 \item \code{B_tot} B-constante (natuurlijke watertypen)
-}}
+}
+}
 \source{
 \href{https://www.aquo-kit.nl/}{Aquo-kit}
 }

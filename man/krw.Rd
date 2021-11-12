@@ -3,7 +3,6 @@
 \docType{package}
 \name{krw}
 \alias{krw}
-\alias{krw-package}
 \title{krw: Een package om EKR-scores uit te rekenen}
 \description{
 Functies voor om EKR-scores te bepalen volgens de maatlatten van 2018.

@@ -15,9 +15,11 @@ ept_factor <- function(taxa, krwwatertype.code){
   
   if (!krwwatertype.code %in% c("R7", "R16")) return(1)
   
-  aantal_ept_taxa <- sum(taxa %in% ept_taxa)
+  families <- unique(twn::increase_taxonlevel(taxa, "Familia"))
   
-  ept_factor <- min(c(1, 0.6 + aantal_ept_taxa/10))
+  aantal_ept_families <- sum(families %in% krw::ept_families)
+  
+  ept_factor <- min(c(1, 0.6 + aantal_ept_families * 0.1))
   
 }
 

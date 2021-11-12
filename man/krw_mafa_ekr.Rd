@@ -4,8 +4,7 @@
 \alias{krw_mafa_ekr}
 \title{KRW-toetsing macrofauna}
 \usage{
-krw_mafa_ekr(df, krwwatertype.code, biotaxon.naam, waarde,
-  verbose = FALSE)
+krw_mafa_ekr(df, krwwatertype.code, biotaxon.naam, waarde, verbose = FALSE)
 }
 \arguments{
 \item{df}{Een dataframe met macrofauna-data. Als het dataframe meerdere monsters bevat
